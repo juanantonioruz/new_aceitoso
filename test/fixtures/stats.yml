@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sid: MyString
+  busquedas: 1
+
+two:
+  sid: MyString
+  busquedas: 1
