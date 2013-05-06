@@ -1,47 +1,50 @@
 # encoding: utf-8
 require 'htmlentities'
 module ApplicationHelper
-  
+@@enlaces={}  
  def get_enlaces id, clase
-enlaces={}
-   ## if @enlaces=={} then
+
+
+    if @@enlaces=={} then
      # Relacionable.find(:all).map{|r| @@enlaces[r.nombre_relacionable]=r.id}
      Museo.order("CHAR_LENGTH(nombre_corto)").find(:all).map do |r| 
-      if clase==Museo && r.id!=id
-       enlaces[r.nombre_corto]=r.predecessor.id 
-        end
+#      if clase==Museo && r.id!=id
+       @@enlaces[r.nombre_corto]=r.predecessor.id 
+#        end
      end
      Generica.order("CHAR_LENGTH(titulo)").find(:all).map do |r|
-if clase==Generica && r.id!=id
- enlaces[r.titulo]=r.predecessor.id
-end
+#if clase==Generica && r.id!=id
+ @@enlaces[r.titulo]=r.predecessor.id
+#end
 end
      Hito.order("CHAR_LENGTH(nombre)").find(:all).map do |r| 
-if clase==Hito && r.id!=id
-enlaces[r.nombre]=r.predecessor.id
+#if clase==Hito && r.id!=id
+@@enlaces[r.nombre]=r.predecessor.id
+#end
 end
-end
-  ##  end
-   enlaces=enlaces.sort_by {|x,y | x.length}
-      return enlaces
+   @@enlaces=@@enlaces.sort_by {|x,y | x.length}
+   end
+
+      return @@enlaces
   end
   def reset_enlaces
-    enlaces={}
+    @@enlaces={}
   end
 
     def texto_con_enlaces texto, id_actual, clase
+
       ocurrencias=[]
       get_enlaces(id_actual, clase).reverse_each do |e,v|
       coder = HTMLEntities.new
 
-
+      if v !=id_actual 
       pepe=coder.encode(e, :named)
         
       res=texto.gsub!(/\b#{pepe}\b/im, "**"+ocurrencias.size.to_s+"**")
         if res!=nil 
             ocurrencias<<[v, pepe]
          end
-        
+        end
        
       end
         
@@ -49,8 +52,9 @@ end
         res=texto.gsub!(/\*\*#{index}\*\*/, " <a href='#' onclick='circles(#{val[0]})'>#{val[1]}</a>")
         end
 
-      puts texto
+
       texto
+      
     end
 
 

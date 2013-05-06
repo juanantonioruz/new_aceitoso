@@ -1,5 +1,7 @@
   include ActionView::Helpers::SanitizeHelper
+
 class ResourcesController < ApplicationController
+    include ApplicationHelper
   layout 'application'
    require 'csv'
    require 'cgi'
@@ -16,12 +18,14 @@ class ResourcesController < ApplicationController
 end
 
 def genera
+
   museos=Museo.find(:all)
   CSV.generate({:col_sep => "\t"}) do |csv| 
     csv << %w{point title description icon}
    for museo in museos do 
         ficha=museo.ficha
         if(!ficha.y.nil?)
+
         csv << "#{ficha.x},#{ficha.y}|#{museo.nombre}|#{ficha.descripcion}".split("|")
         end
     end
@@ -30,6 +34,7 @@ def genera
 end
 
   def museostextfile
+
     v="id|point|title|description|icon|iconOffset|iconSize".split("|").join("\t")+"\n"
       museos=Museo.find(:all)
       id=params[:id]
@@ -87,6 +92,7 @@ museo_se=""
   end
   
   def resumenInfoHTML info
+
     sanitize(info.gsub(/\n/, ""),:tags=>[])[0,130]+"..."
   end
   
@@ -285,7 +291,9 @@ end
         if [Generica, Pieza, Hito, Camino].include?resultado.class
           html=resultado.descripcion
         elsif resultado.class==Museo
-          html=resultado.ficha.descripcion
+          #html=resultado.ficha.descripcion
+   html="#{texto_con_enlaces(resultado.ficha.descripcion, resultado.id, Museo)}"        
+          logger.warn "oooooooooooooooofffffffffffffffuuuuuuuuuu#{html}html"
         end
     return resultado, html
   end
