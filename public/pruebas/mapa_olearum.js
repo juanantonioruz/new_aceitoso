@@ -48,7 +48,7 @@ function add_events_to_ruta(ruta){
 		popup.maxSize = new OpenLayers.Size(300, 300);
 		feature.popup = popup;
 		map.addPopup(popup);
-		disableaLinks();
+		//disableaLinks();
 
 		
 	}
@@ -306,7 +306,7 @@ $("#mapa_div").animate({
                 feature.popup = popup;
                 popup.feature = feature;
                 map.addPopup(popup, true);
-				disableaLinks();
+		//	disableaLinks();
             }
 			function disableaLinks(){
 				
