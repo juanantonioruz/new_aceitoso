@@ -4,7 +4,7 @@
 var map, controls,layer_museos,layer_hitos, indexLayerMuseos, mercator, geographic,p,selectControl, selectControl,capas_sensibles, panel_ampliable, es_ampliado;
   var centroLonLatPeninsula=new OpenLayers.LonLat('-666497.4453543', '4493995.6445449');
   var zoomCentroPeninsula=4;
-var	zoomMapa=8;
+var	zoomMapa=12;
 
 
 function inicia_capas_base(map){
@@ -224,7 +224,7 @@ $("#mapa_div").animate({
 		if(centroLonLatPeninsula==map.center)
 		z=map.zoom;
 		else
-		z=8;
+		z=12;
 		cambiaDimension(altura ,anchura, map.center,map.zoom);
 		
 	}
