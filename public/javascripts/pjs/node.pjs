@@ -14,7 +14,9 @@ class Node {
   public void setGraph(Graph g) {
     this.g = g;
 		this.ps = g.ps;
-		this.particula = ps.makeParticle(1.0,300,200,0);
+		var my_x=(window.innerWidth-290)/2;
+		var my_y= (window.innerHeight-200)/2;
+		this.particula = ps.makeParticle(1.0,my_x,my_y,0);
   }
 	
 	public Object getSubject() {

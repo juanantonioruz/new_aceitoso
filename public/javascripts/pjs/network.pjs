@@ -4,6 +4,7 @@
 /* @pjs preload="javascripts/pjs/images/contacto.jpg"; */
 /* @pjs preload="javascripts/pjs/images/titulo_new2.jpg"; */
 /* @pjs preload="javascripts/pjs/images/inicio.jpg"; */
+/* @pjs preload="javascripts/pjs/images/facebook.jpg"; */
 
 String mensaje="hola";
 boolean depurando=true;
@@ -64,6 +65,7 @@ resourceId=v;
 }
     PImage olearumImage;
     PImage ministerioImage;
+    PImage facebookImage;
     PImage contactoImage;
     PImage resetImage;
     PImage tituloImage;
@@ -73,6 +75,7 @@ resourceId=v;
 
 void setup() {	
     olearumImage = loadImage("javascripts/pjs/images/olearum.jpg");
+    facebookImage = loadImage("javascripts/pjs/images/facebook.jpg");
     ministerioImage = loadImage("javascripts/pjs/images/ministerio.jpg");
     contactoImage = loadImage("javascripts/pjs/images/contacto.jpg");
     resetImage = loadImage("javascripts/pjs/images/inicio.jpg");
@@ -113,6 +116,8 @@ void setup() {
  	finOlearum_2=new PVector(107, 38);
 	 origenMinisterio_2=new PVector(width-150,height-88);
  	finMinisterio_2=new PVector(104, 38);
+	 origenFacebook=new PVector(width-370,height-88);
+ 	finFacebook=new PVector(35, 35);
 
 }
 
@@ -136,6 +141,8 @@ PVector origenOlearum_2;
 PVector finOlearum_2;
 PVector origenMinisterio_1;
 PVector finMinisterio_1;
+PVector origenFacebook;
+PVector finFacebook;
 PVector origenMinisterio_2;
 PVector finMinisterio_2;
 PVector origenReset;
@@ -173,7 +180,7 @@ strokeCap(SQUARE);
 	}
 	           	 image(olearumImage, origenOlearum_2.x, origenOlearum_2.y,finOlearum_2.x,finOlearum_2.y);
            	 image(ministerioImage, origenMinisterio_2.x, origenMinisterio_2.y,finMinisterio_2.x,finMinisterio_2.y);
-	
+           	 image(facebookImage, origenFacebook.x, origenFacebook.y,finFacebook.x,finFacebook.y);	
 	 image(contactoImage, origenContacto.x, origenContacto.y,finContacto.x,finContacto.y);
      image(resetImage, origenReset.x, origenReset.y,finReset.x,finReset.y);
      pushStyle();
@@ -186,7 +193,7 @@ strokeCap(SQUARE);
      popStyle();
 }
 void mouseMoved() {
-	if(compruebaPress(origenContacto, finContacto) || compruebaPress(origenReset, finReset) || compruebaPress(origenOlearum_2, finOlearum_2) || compruebaPress(origenMinisterio_2, finMinisterio_2)){
+	if(compruebaPress(origenFacebook, finFacebook)|| compruebaPress(origenContacto, finContacto) || compruebaPress(origenReset, finReset) || compruebaPress(origenOlearum_2, finOlearum_2) || compruebaPress(origenMinisterio_2, finMinisterio_2)){
 	    if(!is_touch_device())
 	cursor(HAND);
 	}else{
@@ -296,6 +303,9 @@ setup();
 		}
 		if(compruebaPress(origenMinisterio_2, finMinisterio_2)){
 			link("http://www.mcu.es/", "_new"); 
+		}
+		if(compruebaPress(origenFacebook, finFacebook)){
+			link("https://www.facebook.com/RedMuseosOlearum", "_new"); 
 		}
 	}else{
 		if(compruebaPress(origenOlearum_1, finOlearum_1)){
