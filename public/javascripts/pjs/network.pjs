@@ -92,6 +92,7 @@ void setup() {
 	background(234,239,224);
 
 	if (resourceId) {
+//	alert(resourceId);
 		r = fetchResource(resourceId);
 		
 		g.addNode(root = new Node(r));
@@ -151,8 +152,13 @@ PVector finReset;
 boolean iniciar=true;
 void draw() {
 
-if(iniciar){
+if(resourceId==null){
+var resourceIdParam = $.url().param('resourceId');
+if(resourceIdParam != undefined){    
+setR(resourceIdParam);
+}else{
 setR(515);
+}
 iniciar=false;
 setup();
 }

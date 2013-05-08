@@ -10,7 +10,7 @@
 <tbody>
 <%resultados.each do |generica|%>
 <tr>
-<td><%=generica.titulo%></td>
+<td><a href="./?resourceId=<%=generica.predecessor.id%>" target="_blank"><%=generica.predecessor.id%></a> - <%=generica.titulo%></td>
 <td>
 	<%if ! defined? desc%>
 		<%=generica.desc_san[0,200]%>

@@ -10,7 +10,7 @@
 <tbody>
 <%@museos.each do |museo|%>
 <tr>
-<td><%=museo.nombre%></td>
+<td><a href="./?resourceId=<%=museo.predecessor.id%>" target="_blank"><%=museo.predecessor.id%></a> - <%=museo.nombre%></td>
 <td><%=museo.nombre_corto%></td>
 <td>
 <%= link_to 'Ver',museo,:class=>'btn btn-success'%>&nbsp;

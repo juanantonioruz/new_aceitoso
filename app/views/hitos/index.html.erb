@@ -11,7 +11,7 @@
 </tr>
 <%@hitos.each do |hito|%>
 <tr>
-<td><%=hito.nombre%></td>
+<td><a href="/?resourceId=<%=hito.predecessor.id%>" target="_blank"><%=hito.predecessor.id%></a> - <%=hito.nombre%></td>
     <td><%=image_tag(hito.imagen_servicio,:size=>'64x64')%></td>
 
 <td><%=raw hito.descripcion%></td>

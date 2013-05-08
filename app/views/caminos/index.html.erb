@@ -9,7 +9,7 @@
 </tr>
 <%@caminos.each do |camino|%>
 <tr>
-<td><%=camino.nombre%></td>
+<td><a href="/?resourceId=<%=camino.predecessor.id%>" target="_blank"><%=camino.predecessor.id%></a> - <%=camino.nombre%></td>
 <td><%=raw camino.descripcion%></td>
 <td><%=imagentam(camino,'64x64')%></td>
 <td>
