@@ -32,28 +32,34 @@ end
   end
 
     def texto_con_enlaces texto, id_actual, clase
-
+      enlaces_existentes=[]      
+      texto=texto.gsub(/(?i)<a([^>]+)>(.+?)<\/a>/) do |match| 
+        enlaces_existentes.push(match)
+        "&&&&&"
+      end
       ocurrencias=[]
       get_enlaces(id_actual, clase).reverse_each do |e,v|
-      coder = HTMLEntities.new
-
-      if v !=id_actual 
-      pepe=coder.encode(e, :named)
-        
-      res=texto.gsub!(/\b#{pepe}\b/im, "**"+ocurrencias.size.to_s+"**")
-        if res!=nil 
+        coder = HTMLEntities.new
+        if v !=id_actual 
+          pepe=coder.encode(e, :named)
+          res=texto.gsub!(/\b#{pepe}\b/im, "**"+ocurrencias.size.to_s+"**")
+          if res!=nil 
             ocurrencias<<[v, pepe]
-         end
+          end
         end
-       
       end
-        
       ocurrencias.each_with_index do |val, index|
         res=texto.gsub!(/\*\*#{index}\*\*/, " <a href='#' onclick='circles(#{val[0]})'>#{val[1]}</a>")
-        end
+      end
 
-
+      contador_existentes=-1;
+      texto=texto.gsub(/&&&&&/) do |match| 
+        contador_existentes+=1        
+        enlaces_existentes[contador_existentes]
+      end
       texto
+      
+
       
     end
 
