@@ -1,0 +1,13 @@
+<%if entorno.caminos.present? %>
+<h4>Rutas:</h4>
+<ul>
+<%entorno.caminos.each do |camino|%>
+   <li>
+		<p> <%=camino.nombre%></p>
+		<p><%=raw camino.descripcion%></p>
+		<%=imagentam(camino,'128x128')%><br/>
+	
+   </li>
+<%end%>
+</ul>
+<%end%>

@@ -1,0 +1,11 @@
+<%if museo.premios.present? %>
+	<h3>Premios</h3>
+	<ul>
+		<%museo.premios.each do |premio|%>
+  			<li>
+				<p><%=premio.nombre%> <%=premio.url%></p>
+				<%=raw premio.descripcion%>
+   			</li>
+		<%end%>
+	</ul>
+<%end%>

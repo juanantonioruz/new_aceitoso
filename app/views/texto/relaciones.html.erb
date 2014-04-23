@@ -1,0 +1,14 @@
+
+<!-- Renderizar las relaciones de la versión navegable-->
+<p>Este artículo tiene el siguiente contenido relacionado:</p>
+<ul>
+<%relacionable.predecessor.relaciones_origen.sort{|a,b| b.fin.nombre_select <=> a.fin.nombre_select}.each do |rel|%>
+
+   <li>
+   	  <!--<b><%=rel.sentido_relacion.titulo%></b>-->
+      <b><%=rel.fin.nombre_select%>:</b>
+      <%=link_to 'Versión navegable', :controller => 'texto', :action => 'articulo', :id =>rel.fin_id%>&nbsp;-&nbsp;
+    <%=link_to 'Versión interactiva',root_path(:resourceId=>rel.fin_id)%> 
+   </li>
+<%end%>
+</ul>

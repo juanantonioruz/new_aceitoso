@@ -1,4 +1,7 @@
 class MuseoRelacionsController < ApplicationController
+
+  before_filter :pide_login	
+  
   include ModuloRelaciones
    def create
      crea "relacion_museo", "museo"

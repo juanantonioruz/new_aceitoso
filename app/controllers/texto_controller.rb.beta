@@ -1,0 +1,11 @@
+class TextoController < ApplicationController
+  layout 'navegable'
+  def inicio
+  	 inicio=165 #Este es el artículo de bienvenida.
+  	 @generica=Generica.find(inicio)
+  end
+
+  def articulo
+  	@generica=Generica.find(params[:id])
+  end
+end

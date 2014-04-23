@@ -1,0 +1,17 @@
+<%=@resultado.class%>
+
+<%if @resultado.class.to_s=='Generica'%>
+	<%=render :partial => '/texto/elementos/generica', :locals => {:recurso => @resultado }%>
+	
+<%elsif @resultado.class.to_s=='Camino'%>
+	<%=render :partial => '/texto/elementos/camino', :locals => {:recurso => @resultado }%>
+
+<%elsif  @resultado.class.to_s=='Hito' %>
+	<%=render :partial => '/texto/elementos/hito', :locals => {:recurso => @resultado }%>
+	
+<%elsif  @resultado.class.to_s=='Museo'%>
+	<%=render :partial => '/texto/elementos/museo', :locals => {:museo => @resultado }%>
+	
+<%end%>
+<!-- Noticias relacionadas al elemento -->
+<%=render(:file => "/texto/relaciones.html.erb" , :locals => {:relacionable=>@resultado, :pathito=>"generica"} )  %>

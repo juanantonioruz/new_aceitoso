@@ -1,0 +1,6 @@
+<h1>Mostrando articulo: <%=recurso.titulo%></h1>
+<p>Pulsa <%=link_to 'aquí', texto_inicio_path%> para volver al principio o <%=link_to 'aquí',root_path(:resourceId=>params[:id])%> para ver la version interactiva de este artículo</p>
+<hr/>
+<%=imagentam(recurso,'128x128')%><br/>
+<%=raw @html%>
+<hr/>

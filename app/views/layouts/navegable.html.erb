@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+<script>
+
+function delayer() {
+	window.location = "../../?resourceId=<%=@generica.id%>"; 
+}
+</script>
+
+    <meta charset="utf-8">
+    <title>Olearum museos aceite de oliva</title>
+    <meta name="description" content="Olearum, red nacional de museos del aceite de oliva. Proporciona información especializada del aceite de oliva, 		su historia, elementos relacionados y aspectos culturales"> 
+    <meta name="keywords" content="aceite oliva museos cultura historia aceituna ">
+    <meta name="robots" content="index,follow">  
+   <style type="text/css">
+      #container{
+        margin:5%;
+      }
+   </style>
+
+  </head>
+  <body onLoad="setTimeout(function(){delayer();},1000)">
+  <div id='container'>
+    <div>
+        <h2>Olearum versión navegable</h2>
+        <hr/>
+    </div>
+    <div>
+        <%=yield%>
+    </div>
+
+  </div>
+  </body>
+</html>

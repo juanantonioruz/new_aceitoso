@@ -1,0 +1,8 @@
+<%if museo.servicios.present? %>
+<h3>Servicios</h3>
+<ul>
+<%museo.servicios.each do |servicio|%>
+   <li><%=image_tag(servicio.imagen)%><%=servicio.descripcion%></li>
+<%end%>
+</ul>
+<%end%>

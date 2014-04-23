@@ -1,5 +1,6 @@
 class EntornosController < ActionController::Base
     layout 'admin'
+    before_filter :pide_login
     def show
         @museo=Museo.find(params[:museo_id])
         if @museo.entorno.nil?

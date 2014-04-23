@@ -1,0 +1,17 @@
+<h3>Ficha técnica:</h3>
+<!-- %=etiquetas @ficha% -->
+<label class='label'>Imagen</label>
+<p><%=imagentam(museo.ficha,'64x64')%>&nbsp;</p>
+
+<label class='label'>Descripcion</label>
+<p><%=raw  museo.ficha.descripcion%></p>
+
+<label class='label'>Contacto</label>
+<p><%= raw museo.ficha.contacto%>&nbsp;</p>
+
+<label class='label'>Como llegar</label>
+<p><%=raw museo.ficha.llegar%>&nbsp;</p>
+
+<label class='label'>Horarios</label>
+<%= raw  museo.ficha.horario%>
+<hr/>

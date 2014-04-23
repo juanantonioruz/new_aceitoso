@@ -1,0 +1,32 @@
+<h1>Mostrando articulo: <%=@generica.titulo%></h1>
+<br/>
+Click aquí para ir a <%=link_to 'inicio', texto_inicio_path%>
+<label class='label'>Descripción</label>
+<p><%=raw @generica.descripcion%></p>
+<p> 
+  <% if @generica.archivo_url.to_s != "" %>
+  <%= link_to @generica.archivo, @generica.archivo_url.to_s %>
+  <% end %>
+ </p>
+<!--Aqui las etiquetas-->
+<!--%= etiquetas @generica% -->
+<label class='label'>Imagen</label>
+<%=imagentam(@generica,'128x128')%><br/>
+
+<!--
+<label class='label'>Piezas Relacionadas</label>
+<p><%=@generica.piezas.map {|x| x.nombre}%>&nbsp;</p>
+
+<br/>
+<label class='label'>Hitos Relacionados</label>
+<p><%=@generica.hitos.map {|x| x.nombre}%>&nbsp;</p>
+
+<br/>
+<label class='label'>Rutas Relacionadas</label>
+<p><%=@generica.caminos.map {|x| x.descripcion}%>&nbsp;</p>
+-->
+
+
+<hr/>
+<p>Este artículo tiene el siguiente contenido relacionado:</p>
+<%=render(:file => "/texto/relaciones.html.erb" , :locals => {:relacionable=>@generica, :pathito=>"generica"} )  %>

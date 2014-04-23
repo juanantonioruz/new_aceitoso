@@ -1,0 +1,22 @@
+<h1><%=museo.nombre%></h1>
+<h3><%=museo.nombre_corto%></h3>
+<hr/>
+<!--Parciales del museo-->
+<%=render :partial => '/texto/elementos/museo/ficha', :locals => {:museo => museo }%>
+<hr/>
+<%=render :partial => '/texto/elementos/museo/espacios', :locals => {:museo => museo }%>
+<hr/>
+<%=render :partial => '/texto/elementos/museo/piezas', :locals => {:museo => museo }%>
+<hr/>
+<%=render :partial => '/texto/elementos/museo/eventos', :locals => {:museo => museo }%>
+<hr/>
+<%=render :partial => '/texto/elementos/museo/premios', :locals => {:museo => museo }%>
+<hr/>
+<%=render :partial => '/texto/elementos/museo/varios', :locals => {:museo => museo }%>
+<hr/>
+<%=render :partial => '/texto/elementos/museo/publicaciones', :locals => {:museo => museo }%>
+<hr/>
+<%=render :partial => '/texto/elementos/museo/servicios', :locals => {:museo => museo }%>
+<hr/>
+<%=render :partial => '/texto/elementos/museo/entorno', :locals => {:entorno => museo.entorno }%>
+<hr/>

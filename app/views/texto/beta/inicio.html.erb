@@ -1,0 +1,8 @@
+<h3><%=@generica.titulo%></h3>
+
+<h2>Te encuentras en: <%=@generica.titulo%></h2>
+<p>Está es una versión navegable del sítio, utilice los enlaces para aceder al contenido, si deseas ver el sitio animado haz click <%=link_to 'aquí',root_path%></p>
+<hr/>
+<p>Este artículo tiene el siguiente contenido relacionado:</p>
+<%=render(:file => "/texto/relaciones.html.erb" , :locals => {:relacionable=>@generica, :pathito=>"generica"} )  %>
+

@@ -1,5 +1,6 @@
 class ResumenController < ApplicationController
   layout 'resumen'
+  before_filter :pide_login
   def museo
             @museo=Museo.find(params[:id])
 

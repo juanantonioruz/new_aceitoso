@@ -1,0 +1,11 @@
+<%if museo.eventos.present? %>
+<h3>Eventos</h3>
+<ul>
+<%museo.eventos.each do |evento|%>
+   <li>
+	<p><%=imagentam(evento,'128x128')%><%=evento.titulo%></p>
+	<%=raw evento.descripcion%>
+   </li>
+<%end%>
+</ul>
+<%end%>

@@ -1,0 +1,9 @@
+<!-- Renderizar las relaciones de la versión navegable-->
+
+<%relacionable.predecessor.relaciones_origen.sort{|a,b| b.fin.nombre_select <=> a.fin.nombre_select}.each do |rel|%>
+   <p><%=rel.sentido_relacion.titulo%>
+      <b><%=rel.fin.nombre_select%> ></b>
+      <%=link_to 'modo links', :controller => 'texto', :action => 'articulo', :id =>rel.fin_id%>&nbsp;-&nbsp;
+    <%=link_to 'animación',root_path(:resourceId=>rel.fin_id)%> 
+   </p>
+<%end%>

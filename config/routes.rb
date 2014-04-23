@@ -1,5 +1,8 @@
 Olearum::Application.routes.draw do
   
+  match "texto/articulo/:id" => "texto#articulo" 
+  get "texto/inicio"
+
   resources :sesiones
   get 'login' => 'sesiones#new', :as => 'login'
   get 'logout' => 'sesiones#destroy', :as => 'logout'

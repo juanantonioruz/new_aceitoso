@@ -1,0 +1,13 @@
+<%if entorno.hitos.present? %>
+<h4>Hitos</h4>
+<ul>
+<%entorno.hitos.each do |hito|%>
+   <li>
+		<p>Hito: <%=hito.nombre%></p>
+		<p><%=raw hito.descripcion%></p>
+		<%=imagentam(hito,'128x128')%><br/>
+		<p>Coordenadas: x:<%=hito.x%> , y:<%=hito.y%></p>
+   </li>
+<%end%>
+</ul>
+<%end%>

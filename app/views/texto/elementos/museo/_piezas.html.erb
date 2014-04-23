@@ -1,0 +1,14 @@
+<%if museo.piezas.present? %>
+<h3>Piezas</h3>
+<ul>
+<%museo.piezas.each do |pieza|%>
+   <li>
+	<p><%=imagentam(pieza,'128x128')%><%=pieza.nombre%></p>
+	<%=raw pieza.descripcion%>
+	<%if pieza.coleccion==1%>
+		<p>Forma parte de la colección</p>
+	<%end%>
+   </li>
+<%end%>
+</ul>
+<%end%>

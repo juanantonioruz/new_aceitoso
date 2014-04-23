@@ -1,0 +1,10 @@
+<%if museo.varios.present? %>
+<h3>varios</h3>
+<ul>
+<%museo.varios.each do |vario|%>
+   <li>
+	<p><b><%=vario.nombre%>:</b> <%=raw vario.descripcion%></p>
+   </li>
+<%end%>
+</ul>
+<%end%>

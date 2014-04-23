@@ -1,5 +1,5 @@
 class HitosController < ApplicationController
-
+    before_filter :pide_login
     def index
        @museo=Museo.find(params[:museo_id])
        @hitos=@museo.hitos

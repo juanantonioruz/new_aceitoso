@@ -1,0 +1,9 @@
+<h3>Espacios</h3>
+<ul>
+<%museo.espacios.each do |espacio|%>
+   <li>
+	<p><%=imagentam(espacio,'128x128')%><%=espacio.idplano%></p>
+	<%=raw espacio.descripcion%>
+   </li>
+<%end%>
+</ul>

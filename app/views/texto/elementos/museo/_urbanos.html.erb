@@ -1,0 +1,13 @@
+<%if entorno.urbanos.present? %>
+<h4>Localidades:</h4>
+<ul>
+<%entorno.urbanos.each do |urbano|%>
+   <li>
+		<p> <%=urbano.nombre%></p>
+		<p><%=raw urbano.descripcion%></p>
+		<%=imagentam(urbano,'128x128')%><br/>
+		<p>Coordenadas: x:<%=urbano.x%> , y:<%=urbano.y%></p>
+   </li>
+<%end%>
+</ul>
+<%end%>

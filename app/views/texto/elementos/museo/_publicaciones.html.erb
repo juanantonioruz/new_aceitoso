@@ -1,0 +1,11 @@
+<%if museo.publicacions.present? %>
+<h3>Publicaciones</h3>
+<ul>
+<%museo.publicacions.each do |publicacion|%>
+   <li>
+	<p><b><%=publicacion.nombre%>:</b> <%=publicacion.url%></p>
+	<p><%=raw publicacion.descripcion%></p>
+   </li>
+<%end%>
+</ul>
+<%end%>
